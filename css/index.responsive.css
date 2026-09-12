@@ -5,8 +5,19 @@
   .images {
     flex-direction: column;
   }
+  .navbar .navbar-nav {
+    background: var(--zinc);
+    padding: 10px 0px;
+    border-radius: 10px;
+  }
   .navbar .navbar-nav .nav-item:nth-of-type(1) {
     margin-left: initial;
+  }
+
+  .navbar .search {
+    top: auto;
+    bottom: -40%;
+    right: 20px;
   }
 
   #Login.popup .content {
@@ -168,6 +179,16 @@
 }
 
 @media (min-width: 992px) and (max-width: 1300px) {
+  .navbar .navbar-nav {
+    background: transparent;
+  }
+  .navbar .search {
+    bottom: auto;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-60%);
+  }
+
   .navbar .navbar-nav .nav-item {
     width: fit-content;
     margin: initial !important;
