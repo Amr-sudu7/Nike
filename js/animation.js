@@ -25,11 +25,9 @@ let removeProductAnimation = [
   },
 ];
 
-
 let removeProductAnimationOptions = {
   duration: 1000,
 };
-
 
 let addFavouriteAnimation = [
   {
@@ -44,29 +42,39 @@ let addFavouriteAnimation = [
 ];
 
 let addFavouriteAnimationOptions = {
-  duration: 600
+  duration: 600,
 };
 
-
 let removeFavouriteAnimation = [
-  { transform: "translateX(0)" },
-  { transform: "translateX(-8px)" },
-  { transform: "translateX(8px)" },
-  { transform: "translateX(-5px)" },
-  { transform: "translateX(5px)" },
-  { transform: "translateX(0)" }
+  {
+    transform: "translateX(0)",
+  },
+  {
+    transform: "translateX(-8px)",
+  },
+  {
+    transform: "translateX(8px)",
+  },
+  {
+    transform: "translateX(-5px)",
+  },
+  {
+    transform: "translateX(5px)",
+  },
+  {
+    transform: "translateX(0)",
+  },
 ];
 
 let removeFavouriteAnimationOptions = {
   duration: 800,
 };
 
-
 let clearFavouriteAnimation = [
   { transform: "translateX(0)", opacity: 1 },
-  { transform: "translateX(-60px)", opacity: 0 }
+  { transform: "translateX(-60px)", opacity: 0 },
 ];
 
 let clearFavouriteAnimationOptions = {
-  duration: 500
+  duration: 500,
 };

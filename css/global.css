@@ -48,6 +48,11 @@ html::-webkit-scrollbar-thumb:hover {
 .main-color {
   color: var(--main-color);
 }
+.no-search-bg {
+  background-color: #d7e8e767;
+  color: #40545c;
+  border: 1px solid #9fb5bd;
+}
 
 .main-button,
 .remove-button {
@@ -141,7 +146,7 @@ html::-webkit-scrollbar-thumb:hover {
   align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 101;
+  z-index: 110;
   top: 0;
   left: 0;
   backdrop-filter: blur(3px);
@@ -361,4 +366,43 @@ footer span {
 }
 .product.favourite i.fav {
   display: block;
+}
+
+.navbar .search {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--main-color);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.search-box {
+  position: absolute;
+  top: 120%;
+  right: 50%;
+  width: 50%;
+  padding: 10px;
+  background: var(--zinc);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px #00000020;
+
+  transform: translateY(-120%) translateX(50%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.search-box.active {
+  transform: translateY(0) translateX(50%);
+  opacity: 1;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  outline: none;
 }

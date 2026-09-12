@@ -34,7 +34,7 @@ showFeaturedProduct(features);
 
 popupEvents(loginPupup, loginOpen, loginClose);
 popupEvents(shop, shopOpen, shopClose, "cart");
-popupEvents(favouritePopup, favouriteOpen, favouriteClose , "favourite");
+popupEvents(favouritePopup, favouriteOpen, favouriteClose, "favourite");
 
 //slecting after creating the items
 let latestImages = latestProducts.querySelectorAll(".product .part1 ul li img"),
@@ -115,6 +115,61 @@ floatingProduct.querySelector(".content").addEventListener("click", function (e)
   e.stopPropagation();
 });
 
-let latestItems = document.querySelectorAll("#Latest .product "),
-  featuredItems = document.querySelectorAll("#Featured .product "),
-  productsItems = [...latestItems, ...featuredItems];
+let search = document.querySelector(".search"),
+  searchBox = document.querySelector(".search-box"),
+  searchInput = document.querySelector(".search-box input");
+
+search.addEventListener("click", function (e) {
+  e.stopPropagation();
+
+  if (searchBox.classList.contains("active")) {
+    searchBox.classList.remove("active");
+
+    setTimeout(function () {
+      searchBox.classList.add("d-none");
+    }, 500);
+  } else {
+    searchBox.classList.remove("d-none");
+
+    setTimeout(function () {
+      searchBox.classList.add("active");
+    }, 1);
+  }
+});
+
+searchBox.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
+
+document.addEventListener("click", function () {
+  searchBox.classList.remove("active");
+
+  setTimeout(function () {
+    searchBox.classList.add("d-none");
+  }, 500);
+});
+
+searchInput.addEventListener("input", function () {
+  let searchValue = searchInput.value.toLowerCase().trim();
+
+  let searchResults = products.filter(function (product) {
+    let name = product.name.toLowerCase(),
+      id = product.id.toString();
+
+    return name.includes(searchValue) || id.includes(searchValue);
+  });
+
+  if (searchResults.length == 0) {
+    featuredProducts.innerHTML = `
+      <div class="alert no-search-bg text-center w-100">
+        Nothing found
+      </div>
+    `;
+  } else {
+    showFeaturedProduct(searchResults);
+  }
+
+  document.querySelector("#Featured").scrollIntoView({
+    behavior: "smooth",
+  });
+});
