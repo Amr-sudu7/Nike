@@ -126,6 +126,12 @@
 }
 
 @media (min-width: 577px) and (max-width: 1300px) {
+  .navbar .search {
+    bottom: auto;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-60%);
+  }
   .images {
     flex-direction: row;
   }
@@ -181,12 +187,6 @@
 @media (min-width: 992px) and (max-width: 1300px) {
   .navbar .navbar-nav {
     background: transparent;
-  }
-  .navbar .search {
-    bottom: auto;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-60%);
   }
 
   .navbar .navbar-nav .nav-item {
